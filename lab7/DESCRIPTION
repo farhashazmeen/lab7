@@ -1,0 +1,30 @@
+Package: lab7
+Type: Package
+Title: Lab7 Assignment
+Version: 1.0
+Date: 2017-10-10
+Authors@R: c(
+    person("Syeda", "Farha Shazmeen", email = "syesh076@student.liu.se", role = "cre"),
+    person("Farhana", "Chowdhury Tondra", email = "farch587@student.liu.se", role = "aut"))
+Maintainer: Farhana Chowdhury Tondra <tondralok@yahoo.com>
+Description: Ridge regression class is implemented with test cases. 
+License: CC0
+RoxygenNote: 6.0.1.9000
+LazyData: true
+Suggests: testthat,
+          knitr,
+          rmarkdown
+Depends: R (>= 2.10)
+VignetteBuilder: knitr
+Imports: ggplot2, 
+         methods,
+         MASS,
+         mlbench,
+         caret,
+         leaps,
+         nycflights13,
+         dplyr,
+         bindrcpp
+
+
+
