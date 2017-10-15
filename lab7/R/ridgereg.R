@@ -1,30 +1,30 @@
+#' Ridge regression implementation using QR
+#'
+#' A package to handle ridge regression models.
+#' 
+#' @field formula formula which the model will process. 
+#' @field data data.frame which is the input data sample. 
+#' @field parsedata character variable which we need to parse input data. 
+#' @field beta_ridge_QR matrix result for regressions coefficients.. 
+#' @field ybar_ridge_QR matrix result for the fitted values. 
+#' @field names vector for containing the names of coefficients. 
+#'
+#' @return print_QR() prints out the coefficients and coefficient names,
+#'         predict_QR() returns the predicted values of ybar,
+#'         coef_QR() returns the coefficients as a named vector,
+#' @import methods
+#'
+#' @examples ridgereg_mod <- ridgereg$new(Petal.Length~Species,data=iris, lambda=1.2)
+#'  ridgereg_mod$print_QR()
+#'  ridgereg_mod$predict_QR()
+#'  ridgereg_mod$coef_QR()
+#' 
 
-
-#' Title Ridge Regression
-#'
-#' @field formula formula. 
-#' @field data data.frame. 
-#' @field parsedata character. 
-#' @field identity_matrix matrix. 
-#' @field beta_ridge_QR matrix. 
-#' @field ybar_ridge_QR matrix. 
-#'
-#' @return returns regression coeffiecient beta hat and fitted values.
-#'
-#' @export ridgereg
-#' @export
-#'
-#' @examples
-#'  data(iris)
-#ridgereg_mod <- ridgereg$new(Petal.Length~Species,data=iris,lambda =.25)
-#ridgereg_mod$print_QR()
-#ridgereg_mod$coef_QR()
-#ridgereg_mod$predict_QR()
 ridgereg <- setRefClass( Class = "ridgereg",
                          fields = list(formula = "formula",data = "data.frame",
                                        parsedata = "character",
-                                       identity_matrix="matrix",
-                                       beta_ridge_QR ="matrix",ybar_ridge_QR="matrix"             ),
+                                       beta_ridge_QR ="matrix",ybar_ridge_QR="matrix", 
+                                       names="vector"),
                          methods=list(
                            initialize= function(formula,data,lambda,normalise = TRUE){
                              formula  <<- formula
@@ -32,22 +32,21 @@ ridgereg <- setRefClass( Class = "ridgereg",
                              parsedata <<- deparse(substitute(data))
                              x <- model.matrix(formula, data)
                              x<- ((x[,-1]-mean(x[,-1])) / sd(x[,-1]))
-                             
                              x<-x-mean(x)/sd(x)
-                             x_norm<-x
-                             yy  <- all.vars(expr = formula)[1]
-                             y <- (data[, yy])
-                             identity_matrix<<- diag(ncol(x_norm))# x_norm %*% (t(x_norm))  
                              lambda<-lambda
-                             
-                                   #using QR decompositon
+                             yy  <- all.vars(expr = formula)[1]
+                             y <- as.matrix(data[, yy])
+                             x_norm<-x
+                             #using QR decompositon
+                             identity_matrix<- diag(ncol(x_norm))
                              QR_ridge<- qr(x_norm)
+                             Q<-qr.Q (QR_ridge)
                              R<-qr.R(QR_ridge)
-                             Q<-qr.Q(QR_ridge)
-                            # beta_ridge<<-solve((t(x_norm) %*% x_norm)+ (lambda * identity_matrix) ) %*% t(x_norm) %*% y
-                             
-                           beta_ridge_QR<<-solve((t(R)%*%R) + lambda * identity_matrix) %*% t(Q %*% R) %*% y
-                            ybar_ridge_QR<<- (x_norm %*% beta_ridge_QR)
+                             RR<- ((R %*% t(Q) %*% Q) + lambda *(t(Q) %*% Q %*% solve(t(R))))
+                         
+                           beta_ridge_QR<<- backsolve(RR, crossprod(Q,y))
+                           names<<-c(colnames(R))
+                           ybar_ridge_QR<<- (x_norm %*% beta_ridge_QR)
                              
                            },     
                            
@@ -58,9 +57,8 @@ ridgereg <- setRefClass( Class = "ridgereg",
                                  paste("ridgereg(", "formula = ", formula[2]," ", formula[1], " ", formula[3],
                                        ", ", "data = ", parsedata, ", lambda = 0)",sep = "", collapse = "\n" ),
                                  "\n","Coefficients:","\n",
-                                 paste(row.names(beta_ridge_QR),
-                                       sep = "  ", collapse ="  " ),"\n",
-                                 format(round(beta_ridge_QR,2), justify = "centre",width = 10))
+                                format(names, justify = "centre",width = 12),"\n",
+                                 format(round(beta_ridge_QR,2), justify = "centre",width = 12))
                              
                            },
                            
@@ -70,11 +68,13 @@ ridgereg <- setRefClass( Class = "ridgereg",
                            },
                            
                            coef_QR = function(){
-                             # cat("\n \nRegressions coefficients using QR decomposition:","\n\n")
-                             # ridge_coef_QR <-as.vector(round(beta_ridge_QR,2))
-                             # names(ridge_coef_QR)<-c(row.names(beta_ridge_QR))
-                             return (beta_ridge_QR)
+                              cat("\n \nRegressions coefficients using QR decomposition:","\n\n")
+                              ridge_coef_QR <-as.vector(round(beta_ridge_QR,2))
+                              names(ridge_coef_QR)<-names
+                             return (ridge_coef_QR)
                            }
                            
                          ))
 
+#ridgereg_mod <- ridgereg$new(Petal.Length~Species,data=iris, lambda=1.2)
+#ridgereg_mod$print_QR()

@@ -4,30 +4,36 @@
 \name{ridgereg-class}
 \alias{ridgereg-class}
 \alias{ridgereg}
-\title{Title Ridge Regression}
+\title{Ridge regression implementation using QR}
 \value{
-returns regression coeffiecient beta hat and fitted values.
+print_QR() prints out the coefficients and coefficient names,
+        predict_QR() returns the predicted values of ybar,
+        coef_QR() returns the coefficients as a named vector,
 }
 \description{
-Title Ridge Regression
+A package to handle ridge regression models.
 }
 \section{Fields}{
 
 \describe{
-\item{\code{formula}}{formula.}
+\item{\code{formula}}{formula which the model will process.}
 
-\item{\code{data}}{data.frame.}
+\item{\code{data}}{data.frame which is the input data sample.}
 
-\item{\code{parsedata}}{character.}
+\item{\code{parsedata}}{character variable which we need to parse input data.}
 
-\item{\code{identity_matrix}}{matrix.}
+\item{\code{beta_ridge_QR}}{matrix result for regressions coefficients..}
 
-\item{\code{beta_ridge_QR}}{matrix.}
+\item{\code{ybar_ridge_QR}}{matrix result for the fitted values.}
 
-\item{\code{ybar_ridge_QR}}{matrix.}
+\item{\code{names}}{vector for containing the names of coefficients.}
 }}
 
 
 \examples{
- data(iris)
+ridgereg_mod <- ridgereg$new(Petal.Length~Species,data=iris, lambda=1.2)
+ ridgereg_mod$print_QR()
+ ridgereg_mod$predict_QR()
+ ridgereg_mod$coef_QR()
+
 }

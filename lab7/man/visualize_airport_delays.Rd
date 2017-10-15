@@ -2,7 +2,7 @@
 % Please edit documentation in R/visualize_airport_delays.R
 \name{visualize_airport_delays}
 \alias{visualize_airport_delays}
-\title{Title}
+\title{Handling large datasets with dplyr}
 \usage{
 visualize_airport_delays()
 }
@@ -10,8 +10,12 @@ visualize_airport_delays()
 returns plot.
 }
 \description{
-Title
+This function creates a plot which visualizes a large dataset.
 }
 \examples{
 visualize_airport_delays()
+
+}
+\references{
+\href{https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf}{DataWrangling}
 }

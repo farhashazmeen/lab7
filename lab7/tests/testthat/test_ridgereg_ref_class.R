@@ -20,7 +20,7 @@ test_that("print_QR() method works", {
   ridgereg_mod <- ridgereg$new(Petal.Length~Species, data=iris,lambda=0)
   
   expect_output(ridgereg_mod$print_QR(),"ridgereg\\(formula = Petal\\.Length ~ Species, data = iris\\, lambda = 0)")
-  expect_output(ridgereg_mod$print_QR()," Speciesversicolor  Speciesvirginica")
+  expect_output(ridgereg_mod$print_QR()," Speciesversicolor Speciesvirginica")
 })
 
 test_that("predict_QR() method works", {

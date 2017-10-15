@@ -14,16 +14,16 @@ LazyData: true
 Suggests: testthat,
           knitr,
           rmarkdown
-Depends: R (>= 2.10)
+Depends: R (>= 2.10),
+         dplyr,
+         ggplot2
 VignetteBuilder: knitr
-Imports: ggplot2, 
-         methods,
+Imports: methods,
          MASS,
          mlbench,
          caret,
          leaps,
          nycflights13,
-         dplyr,
          bindrcpp
 
 

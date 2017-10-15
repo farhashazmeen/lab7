@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title>- A Method RC class is used here named as ridgereg(). </title>
+
+<script type="text/javascript">
+window.onload = function() {
+  var imgs = document.getElementsByTagName('img'), i, img;
+  for (i = 0; i < imgs.length; i++) {
+    img = imgs[i];
+    // center an image if it is the only element of its parent
+    if (img.parentElement.childElementCount === 1)
+      img.parentElement.style.textAlign = 'center';
+  }
+};
+</script>
+
+<!-- Styles for R syntax highlighter -->
+<style type="text/css">
+   pre .operator,
+   pre .paren {
+     color: rgb(104, 118, 135)
+   }
+
+   pre .literal {
+     color: #990073
+   }
+
+   pre .number {
+     color: #099;
+   }
+
+   pre .comment {
+     color: #998;
+     font-style: italic
+   }
+
+   pre .keyword {
+     color: #900;
+     font-weight: bold
+   }
+
+   pre .identifier {
+     color: rgb(0, 0, 0);
+   }
+
+   pre .string {
+     color: #d14;
+   }
+</style>
+
+<!-- R syntax highlighter -->
+<script type="text/javascript">
+var hljs=new function(){function m(p){return p.replace(/&/gm,"&amp;").replace(/</gm,"&lt;")}function f(r,q,p){return RegExp(q,"m"+(r.cI?"i":"")+(p?"g":""))}function b(r){for(var p=0;p<r.childNodes.length;p++){var q=r.childNodes[p];if(q.nodeName=="CODE"){return q}if(!(q.nodeType==3&&q.nodeValue.match(/\s+/))){break}}}function h(t,s){var p="";for(var r=0;r<t.childNodes.length;r++){if(t.childNodes[r].nodeType==3){var q=t.childNodes[r].nodeValue;if(s){q=q.replace(/\n/g,"")}p+=q}else{if(t.childNodes[r].nodeName=="BR"){p+="\n"}else{p+=h(t.childNodes[r])}}}if(/MSIE [678]/.test(navigator.userAgent)){p=p.replace(/\r/g,"\n")}return p}function a(s){var r=s.className.split(/\s+/);r=r.concat(s.parentNode.className.split(/\s+/));for(var q=0;q<r.length;q++){var p=r[q].replace(/^language-/,"");if(e[p]){return p}}}function c(q){var p=[];(function(s,t){for(var r=0;r<s.childNodes.length;r++){if(s.childNodes[r].nodeType==3){t+=s.childNodes[r].nodeValue.length}else{if(s.childNodes[r].nodeName=="BR"){t+=1}else{if(s.childNodes[r].nodeType==1){p.push({event:"start",offset:t,node:s.childNodes[r]});t=arguments.callee(s.childNodes[r],t);p.push({event:"stop",offset:t,node:s.childNodes[r]})}}}}return t})(q,0);return p}function k(y,w,x){var q=0;var z="";var s=[];function u(){if(y.length&&w.length){if(y[0].offset!=w[0].offset){return(y[0].offset<w[0].offset)?y:w}else{return w[0].event=="start"?y:w}}else{return y.length?y:w}}function t(D){var A="<"+D.nodeName.toLowerCase();for(var B=0;B<D.attributes.length;B++){var C=D.attributes[B];A+=" "+C.nodeName.toLowerCase();if(C.value!==undefined&&C.value!==false&&C.value!==null){A+='="'+m(C.value)+'"'}}return A+">"}while(y.length||w.length){var v=u().splice(0,1)[0];z+=m(x.substr(q,v.offset-q));q=v.offset;if(v.event=="start"){z+=t(v.node);s.push(v.node)}else{if(v.event=="stop"){var p,r=s.length;do{r--;p=s[r];z+=("</"+p.nodeName.toLowerCase()+">")}while(p!=v.node);s.splice(r,1);while(r<s.length){z+=t(s[r]);r++}}}}return z+m(x.substr(q))}function j(){function q(x,y,v){if(x.compiled){return}var u;var s=[];if(x.k){x.lR=f(y,x.l||hljs.IR,true);for(var w in x.k){if(!x.k.hasOwnProperty(w)){continue}if(x.k[w] instanceof Object){u=x.k[w]}else{u=x.k;w="keyword"}for(var r in u){if(!u.hasOwnProperty(r)){continue}x.k[r]=[w,u[r]];s.push(r)}}}if(!v){if(x.bWK){x.b="\\b("+s.join("|")+")\\s"}x.bR=f(y,x.b?x.b:"\\B|\\b");if(!x.e&&!x.eW){x.e="\\B|\\b"}if(x.e){x.eR=f(y,x.e)}}if(x.i){x.iR=f(y,x.i)}if(x.r===undefined){x.r=1}if(!x.c){x.c=[]}x.compiled=true;for(var t=0;t<x.c.length;t++){if(x.c[t]=="self"){x.c[t]=x}q(x.c[t],y,false)}if(x.starts){q(x.starts,y,false)}}for(var p in e){if(!e.hasOwnProperty(p)){continue}q(e[p].dM,e[p],true)}}function d(B,C){if(!j.called){j();j.called=true}function q(r,M){for(var L=0;L<M.c.length;L++){if((M.c[L].bR.exec(r)||[null])[0]==r){return M.c[L]}}}function v(L,r){if(D[L].e&&D[L].eR.test(r)){return 1}if(D[L].eW){var M=v(L-1,r);return M?M+1:0}return 0}function w(r,L){return L.i&&L.iR.test(r)}function K(N,O){var M=[];for(var L=0;L<N.c.length;L++){M.push(N.c[L].b)}var r=D.length-1;do{if(D[r].e){M.push(D[r].e)}r--}while(D[r+1].eW);if(N.i){M.push(N.i)}return f(O,M.join("|"),true)}function p(M,L){var N=D[D.length-1];if(!N.t){N.t=K(N,E)}N.t.lastIndex=L;var r=N.t.exec(M);return r?[M.substr(L,r.index-L),r[0],false]:[M.substr(L),"",true]}function z(N,r){var L=E.cI?r[0].toLowerCase():r[0];var M=N.k[L];if(M&&M instanceof Array){return M}return false}function F(L,P){L=m(L);if(!P.k){return L}var r="";var O=0;P.lR.lastIndex=0;var M=P.lR.exec(L);while(M){r+=L.substr(O,M.index-O);var N=z(P,M);if(N){x+=N[1];r+='<span class="'+N[0]+'">'+M[0]+"</span>"}else{r+=M[0]}O=P.lR.lastIndex;M=P.lR.exec(L)}return r+L.substr(O,L.length-O)}function J(L,M){if(M.sL&&e[M.sL]){var r=d(M.sL,L);x+=r.keyword_count;return r.value}else{return F(L,M)}}function I(M,r){var L=M.cN?'<span class="'+M.cN+'">':"";if(M.rB){y+=L;M.buffer=""}else{if(M.eB){y+=m(r)+L;M.buffer=""}else{y+=L;M.buffer=r}}D.push(M);A+=M.r}function G(N,M,Q){var R=D[D.length-1];if(Q){y+=J(R.buffer+N,R);return false}var P=q(M,R);if(P){y+=J(R.buffer+N,R);I(P,M);return P.rB}var L=v(D.length-1,M);if(L){var O=R.cN?"</span>":"";if(R.rE){y+=J(R.buffer+N,R)+O}else{if(R.eE){y+=J(R.buffer+N,R)+O+m(M)}else{y+=J(R.buffer+N+M,R)+O}}while(L>1){O=D[D.length-2].cN?"</span>":"";y+=O;L--;D.length--}var r=D[D.length-1];D.length--;D[D.length-1].buffer="";if(r.starts){I(r.starts,"")}return R.rE}if(w(M,R)){throw"Illegal"}}var E=e[B];var D=[E.dM];var A=0;var x=0;var y="";try{var s,u=0;E.dM.buffer="";do{s=p(C,u);var t=G(s[0],s[1],s[2]);u+=s[0].length;if(!t){u+=s[1].length}}while(!s[2]);if(D.length>1){throw"Illegal"}return{r:A,keyword_count:x,value:y}}catch(H){if(H=="Illegal"){return{r:0,keyword_count:0,value:m(C)}}else{throw H}}}function g(t){var p={keyword_count:0,r:0,value:m(t)};var r=p;for(var q in e){if(!e.hasOwnProperty(q)){continue}var s=d(q,t);s.language=q;if(s.keyword_count+s.r>r.keyword_count+r.r){r=s}if(s.keyword_count+s.r>p.keyword_count+p.r){r=p;p=s}}if(r.language){p.second_best=r}return p}function i(r,q,p){if(q){r=r.replace(/^((<[^>]+>|\t)+)/gm,function(t,w,v,u){return w.replace(/\t/g,q)})}if(p){r=r.replace(/\n/g,"<br>")}return r}function n(t,w,r){var x=h(t,r);var v=a(t);var y,s;if(v){y=d(v,x)}else{return}var q=c(t);if(q.length){s=document.createElement("pre");s.innerHTML=y.value;y.value=k(q,c(s),x)}y.value=i(y.value,w,r);var u=t.className;if(!u.match("(\\s|^)(language-)?"+v+"(\\s|$)")){u=u?(u+" "+v):v}if(/MSIE [678]/.test(navigator.userAgent)&&t.tagName=="CODE"&&t.parentNode.tagName=="PRE"){s=t.parentNode;var p=document.createElement("div");p.innerHTML="<pre><code>"+y.value+"</code></pre>";t=p.firstChild.firstChild;p.firstChild.cN=s.cN;s.parentNode.replaceChild(p.firstChild,s)}else{t.innerHTML=y.value}t.className=u;t.result={language:v,kw:y.keyword_count,re:y.r};if(y.second_best){t.second_best={language:y.second_best.language,kw:y.second_best.keyword_count,re:y.second_best.r}}}function o(){if(o.called){return}o.called=true;var r=document.getElementsByTagName("pre");for(var p=0;p<r.length;p++){var q=b(r[p]);if(q){n(q,hljs.tabReplace)}}}function l(){if(window.addEventListener){window.addEventListener("DOMContentLoaded",o,false);window.addEventListener("load",o,false)}else{if(window.attachEvent){window.attachEvent("onload",o)}else{window.onload=o}}}var e={};this.LANGUAGES=e;this.highlight=d;this.highlightAuto=g;this.fixMarkup=i;this.highlightBlock=n;this.initHighlighting=o;this.initHighlightingOnLoad=l;this.IR="[a-zA-Z][a-zA-Z0-9_]*";this.UIR="[a-zA-Z_][a-zA-Z0-9_]*";this.NR="\\b\\d+(\\.\\d+)?";this.CNR="\\b(0[xX][a-fA-F0-9]+|(\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)";this.BNR="\\b(0b[01]+)";this.RSR="!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|\\.|-|-=|/|/=|:|;|<|<<|<<=|<=|=|==|===|>|>=|>>|>>=|>>>|>>>=|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~";this.ER="(?![\\s\\S])";this.BE={b:"\\\\.",r:0};this.ASM={cN:"string",b:"'",e:"'",i:"\\n",c:[this.BE],r:0};this.QSM={cN:"string",b:'"',e:'"',i:"\\n",c:[this.BE],r:0};this.CLCM={cN:"comment",b:"//",e:"$"};this.CBLCLM={cN:"comment",b:"/\\*",e:"\\*/"};this.HCM={cN:"comment",b:"#",e:"$"};this.NM={cN:"number",b:this.NR,r:0};this.CNM={cN:"number",b:this.CNR,r:0};this.BNM={cN:"number",b:this.BNR,r:0};this.inherit=function(r,s){var p={};for(var q in r){p[q]=r[q]}if(s){for(var q in s){p[q]=s[q]}}return p}}();hljs.LANGUAGES.cpp=function(){var a={keyword:{"false":1,"int":1,"float":1,"while":1,"private":1,"char":1,"catch":1,"export":1,virtual:1,operator:2,sizeof:2,dynamic_cast:2,typedef:2,const_cast:2,"const":1,struct:1,"for":1,static_cast:2,union:1,namespace:1,unsigned:1,"long":1,"throw":1,"volatile":2,"static":1,"protected":1,bool:1,template:1,mutable:1,"if":1,"public":1,friend:2,"do":1,"return":1,"goto":1,auto:1,"void":2,"enum":1,"else":1,"break":1,"new":1,extern:1,using:1,"true":1,"class":1,asm:1,"case":1,typeid:1,"short":1,reinterpret_cast:2,"default":1,"double":1,register:1,explicit:1,signed:1,typename:1,"try":1,"this":1,"switch":1,"continue":1,wchar_t:1,inline:1,"delete":1,alignof:1,char16_t:1,char32_t:1,constexpr:1,decltype:1,noexcept:1,nullptr:1,static_assert:1,thread_local:1,restrict:1,_Bool:1,complex:1},built_in:{std:1,string:1,cin:1,cout:1,cerr:1,clog:1,stringstream:1,istringstream:1,ostringstream:1,auto_ptr:1,deque:1,list:1,queue:1,stack:1,vector:1,map:1,set:1,bitset:1,multiset:1,multimap:1,unordered_set:1,unordered_map:1,unordered_multiset:1,unordered_multimap:1,array:1,shared_ptr:1}};return{dM:{k:a,i:"</",c:[hljs.CLCM,hljs.CBLCLM,hljs.QSM,{cN:"string",b:"'\\\\?.",e:"'",i:"."},{cN:"number",b:"\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)"},hljs.CNM,{cN:"preprocessor",b:"#",e:"$"},{cN:"stl_container",b:"\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<",e:">",k:a,r:10,c:["self"]}]}}}();hljs.LANGUAGES.r={dM:{c:[hljs.HCM,{cN:"number",b:"\\b0[xX][0-9a-fA-F]+[Li]?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+(?:[eE][+\\-]?\\d*)?L\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+\\.(?!\\d)(?:i\\b)?",e:hljs.IMMEDIATE_RE,r:1},{cN:"number",b:"\\b\\d+(?:\\.\\d*)?(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\.\\d+(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"keyword",b:"(?:tryCatch|library|setGeneric|setGroupGeneric)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\.",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\d+(?![\\w.])",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\b(?:function)",e:hljs.IMMEDIATE_RE,r:2},{cN:"keyword",b:"(?:if|in|break|next|repeat|else|for|return|switch|while|try|stop|warning|require|attach|detach|source|setMethod|setClass)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"literal",b:"(?:NA|NA_integer_|NA_real_|NA_character_|NA_complex_)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"literal",b:"(?:NULL|TRUE|FALSE|T|F|Inf|NaN)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"identifier",b:"[a-zA-Z.][a-zA-Z0-9._]*\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"<\\-(?!\\s*\\d)",e:hljs.IMMEDIATE_RE,r:2},{cN:"operator",b:"\\->|<\\-",e:hljs.IMMEDIATE_RE,r:1},{cN:"operator",b:"%%|~",e:hljs.IMMEDIATE_RE},{cN:"operator",b:">=|<=|==|!=|\\|\\||&&|=|\\+|\\-|\\*|/|\\^|>|<|!|&|\\||\\$|:",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"%",e:"%",i:"\\n",r:1},{cN:"identifier",b:"`",e:"`",r:0},{cN:"string",b:'"',e:'"',c:[hljs.BE],r:0},{cN:"string",b:"'",e:"'",c:[hljs.BE],r:0},{cN:"paren",b:"[[({\\])}]",e:hljs.IMMEDIATE_RE,r:0}]}};
+hljs.initHighlightingOnLoad();
+</script>
+
+<!-- MathJax scripts -->
+<script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 13px;
+}
+
+body {
+  max-width: 800px;
+  margin: auto;
+  padding: 1em;
+  line-height: 20px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 {
+   font-size:2.2em;
+}
+
+h2 {
+   font-size:1.8em;
+}
+
+h3 {
+   font-size:1.4em;
+}
+
+h4 {
+   font-size:1.0em;
+}
+
+h5 {
+   font-size:0.9em;
+}
+
+h6 {
+   font-size:0.8em;
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre, img {
+  max-width: 100%;
+}
+pre {
+  overflow-x: auto;
+}
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code {
+  font-size: 92%;
+  border: 1px solid #ccc;
+}
+
+code[class] {
+  background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * {
+      background: transparent !important;
+      color: black !important;
+      filter:none !important;
+      -ms-filter: none !important;
+   }
+
+   body {
+      font-size:12pt;
+      max-width:100%;
+   }
+
+   a, a:visited {
+      text-decoration: underline;
+   }
+
+   hr {
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote {
+      padding-right: 1em;
+      page-break-inside: avoid;
+   }
+
+   tr, img {
+      page-break-inside: avoid;
+   }
+
+   img {
+      max-width: 100% !important;
+   }
+
+   @page :left {
+      margin: 15mm 20mm 15mm 10mm;
+   }
+
+   @page :right {
+      margin: 15mm 10mm 15mm 20mm;
+   }
+
+   p, h2, h3 {
+      orphans: 3; widows: 3;
+   }
+
+   h2, h3 {
+      page-break-after: avoid;
+   }
+}
+</style>
+
+
+
+</head>
+
+<body>
+<p><strong>RCourseLab7</strong> is entitled for understanding of machine learning in R. The package consists of Ridge regression and plotting a large dataset using ggplot and dplyr and also a evaluating three models based on a large dataset.  </p>
+
+<p>As we have created packages in earlier labs , similar to that there is <strong>/R</strong> folder, where the ridge regression model and visualize delay files are kept as .R file. <strong>/test</strong> folder contains implemented testcases for the functions. All .rd files are situdated inside <strong>/man</strong> folder and .Rmd file containing the vignette documentation is inside the <strong>/vignettes</strong> folder.</p>
+
+<p>This package contains  methods for ridge regression model. We are using QR decomposition to get the basic functionality in the R package. The function is written using RC class  where fields and then methods are initialized. The methods which are implemented for calculating linear regression model is defined later.This package contains few things :</p>
+
+<h2>- A Method RC class is used here named as ridgereg(). </h2>
+
+<h2></h2>
+
+<h2>ridgereg() Class:</h2>
+
+<p>The function is called <strong>ridgereg()</strong> and have the three arguments formula, data and lambda. The function returns an object ofclass ridgereg. First the data is normalized as below</p>
+
+<p>\[ X_{norm} = \frac{x-\bar{x}}{\sqrt{V(x)}} \]</p>
+
+<pre><code class="r">  x&lt;- ((x[,-1]-mean(x[,-1])) / sd(x[,-1]))
+</code></pre>
+
+<p>Using QR decomposition part for ridge regression,</p>
+
+<pre><code class="r">QR_ridge&lt;- qr(x_norm)
+Q&lt;-qr.Q (QR_ridge)
+R&lt;-qr.R(QR_ridge)
+RR&lt;- ((R %*% t(Q) %*% Q) + lambda *(t(Q) %*% Q %*% solve(t(R))))
+</code></pre>
+
+<p>\[ \beta{(Q^TQR + lambda * Q^TQ{{R^T}^{-1}})} = Q^TY\]
+where, \[(Q^TQR + lambda * Q^TQ{{R^T}^{-1}})=R \]</p>
+
+<p>which implies QR decomposition of </p>
+
+<p>\[ R\beta = Q^TY\]</p>
+
+<h3>Regressions coefficients:</h3>
+
+<p>Regressions coefficient using  QR,</p>
+
+<pre><code class="r">beta_ridge_QR&lt;&lt;- backsolve(RR, crossprod(Q,y))
+</code></pre>
+
+<h3>The fitted values:</h3>
+
+<p>Fitted values using QR</p>
+
+<pre><code class="r">ybar_ridge_QR&lt;&lt;- (x_norm %*% beta_ridge_QR)
+</code></pre>
+
+<h2>Methods:</h2>
+
+<p>###ridgereg_mod$print_QR()</p>
+
+<p>It prints out the coefficients and coefficient names.</p>
+
+<pre><code class="r">print_QR= function(){
+
+
+                             cat(&quot;\n&quot;,&quot;Call:&quot;,&quot;\n&quot;,
+                                 paste(&quot;ridgereg(&quot;, &quot;formula = &quot;, formula[2],&quot; &quot;, formula[1], &quot; &quot;, formula[3],
+                                       &quot;, &quot;, &quot;data = &quot;, parsedata, &quot;, lambda = 0)&quot;,sep = &quot;&quot;, collapse = &quot;\n&quot; ),
+                                 &quot;\n&quot;,&quot;Coefficients:&quot;,&quot;\n&quot;,
+                                 paste(names,
+                                       sep = &quot;  &quot;, collapse =&quot;  &quot; ),&quot;\n&quot;,
+                                 format(round(beta_ridge_QR,2), justify = &quot;centre&quot;,width = 10))
+
+                           }
+</code></pre>
+
+<p>###ridgereg_mod$predict_QR()</p>
+
+<p>predict_QR() returns the predicted values of ybar.</p>
+
+<pre><code class="r">  predict_QR =function(){
+                             cat(&quot;\n \n Predicted values or fitted values using QR decomposition:&quot;,&quot;\n\n&quot;)
+                             return(as.vector(round(ybar_ridge_QR, 2)))
+                           }
+</code></pre>
+
+<p>###ridgereg_mod$coef_QR()
+coef_QR() returns the coefficients as a named vector</p>
+
+<pre><code class="r"> coef_QR = function(){
+                              cat(&quot;\n \nRegressions coefficients using QR decomposition:&quot;,&quot;\n\n&quot;)
+                              ridge_coef_QR &lt;-as.vector(round(beta_ridge_QR,2))
+                              names(ridge_coef_QR)&lt;-names
+                             return (ridge_coef_QR)
+                           }
+</code></pre>
+
+<p>##Testsuit implementation:
+A testsuit has been added in the /tests folder named as test_ridgereg_ref_class.R which tests the method and class functionality of ridgereg function.</p>
+
+<p>Below is one of the testcase:</p>
+
+<pre><code class="r">test_that(&quot;print_QR() method works&quot;, {
+  ridgereg_mod &lt;- ridgereg$new(Petal.Length~Species, data=iris,lambda=0)
+
+  expect_output(ridgereg_mod$print_QR(),&quot;ridgereg\\(formula = Petal\\.Length ~ Species, data = iris\\, lambda = 0)&quot;)
+  expect_output(ridgereg_mod$print_QR(),&quot; Speciesversicolor  Speciesvirginica&quot;)
+})
+</code></pre>
+
+<h2>Handling large datasets with dplyr</h2>
+
+<p>visualize_airport_delays() is a function which is creating a plot using ggplot by manipulating a large dataset of nycflights13 package using dplyr verbs.</p>
+
+<pre><code class="r">library(lab7)
+library(nycflights13)
+library(ggplot2)
+library(dplyr)
+ plot_delay &lt;- ggplot(df,aes(x=df$Lat, y =df$Lon))+
+  geom_point(aes(color=df$Delay),size=4)+
+  labs(title= &quot;Visualising delay &quot;, x= &quot;Latitude&quot;,y=&quot;Longitude&quot;)
+
+ visualize_airport_delays()
+</code></pre>
+
+<p><img src="data:image/png;base64,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" alt="plot of chunk unnamed-chunk-9"/></p>
+
+<p>This graph implies that the x axis is latitude and y is longitude of the airports of newyork. And based on delay the graph plots dots. the darker color states the minimal mean delay and the ligher color of dots denotes the maximum mean delay of those airports. </p>
+
+<p>##The caret implementation:</p>
+
+<p>The caret part is added on seperate file.</p>
+
+<p>##Roxygen Description files:
+###Package documentation : <strong>Package.Rd</strong>
+This file includes the detail description of how package works , who worked for it and so on.</p>
+
+<p>###Function documentation : <strong>ridgereg-class.Rd</strong>
+This file contains the description of class file , fields, method, examples, references and return statements.</p>
+
+<p>###Vignettes documentation : <strong>vignettes.Rmd</strong>
+This is about how the whole package is made of and how to read it and implement it.</p>
+
+<p>##Installation:
+This package can be installed using below command    </p>
+
+<pre><code class="r">devtools::install_github(&quot;tondralok/GoogleAPI/Geocode&quot;)
+</code></pre>
+
+<p>##References:</p>
+
+<p>The study material for this lab given below.</p>
+
+<ol>
+<li><a href="http://genomicsclass.github.io/book/pages/qr_and_regression.html">http://genomicsclass.github.io/book/pages/qr_and_regression.html</a></li>
+<li><a href="https://math.stackexchange.com/questions/299481/qr-factorization-for-ridge-regression">https://math.stackexchange.com/questions/299481/qr-factorization-for-ridge-regression</a></li>
+</ol>
+
+</body>
+
+</html>
